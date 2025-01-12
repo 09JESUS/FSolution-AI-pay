@@ -1,0 +1,1211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FSolution Pay</title>
+    <link rel="icon" href="static/images/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-nCwF84dh4NjO+VHOYZ6df44QgqOLNExTtb5+3Ng3yR9YsZo74DPS3GSHeIijC5ZZy1k4gI+qf4y5aKDU+nJe9g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Raleway', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            overflow-x: hidden; /* Prevent horizontal scrolling */
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(90deg, #000000, #0015b5);
+            padding: 15px 30px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar .logo {
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        /* Default styles for the menu */
+.nav-menu {
+    display: flex;
+    list-style: none;
+}
+
+.nav-menu li {
+    margin: 0 10px;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: #fff;
+}
+
+
+
+        .navbar .brand-name {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ecf0f1;
+            text-decoration: none;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar ul li {
+            margin-left: 20px;
+        }
+
+        .navbar ul li a {
+            text-decoration: none;
+            color: #ecf0f1;
+            font-size: 18px;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s, transform 0.3s;
+            display: inline-block;
+        }
+
+        .navbar ul li a:hover {
+            background: linear-gradient(90deg, #0033cc, #0066ff); /* Blue gradient background on hover */
+            color: #ffffff;
+            transform: scale(1.05);
+        }
+
+        .navbar .menu-icon {
+            display: none;
+            font-size: 28px;
+            color: #ecf0f1;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .navbar ul {
+                position: absolute;
+                top: 60px;
+                left: -100%;
+                flex-direction: column;
+                background: linear-gradient(90deg, #000000, #0015b5);
+                width: 100%;
+                text-align: center;
+                transition: left 0.3s;
+            }
+
+            .menu-icon {
+        display: block;
+    }
+
+    .nav-menu {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background-color: #333;
+        width: 100%;
+    }
+
+    .nav-menu.show {
+        display: flex;
+    }
+
+    .nav-menu li {
+        margin: 10px 0;
+        text-align: center;
+    }
+
+            .navbar ul li {
+                margin: 15px 0;
+            }
+
+            .navbar ul.show-menu {
+                left: 0;
+            }
+
+            .navbar .menu-icon {
+                display: block;
+            }
+        }
+
+        
+
+        /* Background section styles */
+.background-section {
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    animation: slowmotionBackground 20s infinite alternate;
+    display: flex;
+    flex-direction: column; /* Align children vertically */
+    align-items: flex-start; /* Align to the start (left) */
+    padding: 50px 10%; /* Add padding for responsive design */
+    color: white;
+    box-sizing: border-box; /* Include padding in width calculation */
+}
+
+.background-section h1 {
+    font-size: 6vw; /* Use viewport width for responsive font size */
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.background-section p {
+    font-size: 1.5vw; /* Use viewport width for responsive font size */
+    max-width: 80%; /* Use percentage for responsiveness */
+    line-height: 1.6;
+    color: #ffffff;
+    font-weight: bold;
+    margin-bottom: 20px; /* Space between paragraph and buttons */
+}
+
+.button-container {
+    text-align: left; /* Align button container to the left */
+    width: 100%; /* Ensure container spans full width */
+}
+
+.read-more-button,
+.contact-button {
+    padding: 10px 20px;
+    font-size: 1.5vw; /* Use viewport width for responsive font size */
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
+    display: inline-block; /* Display buttons inline */
+    margin-right: 10px; /* Add space between buttons */
+    font-weight: normal; /* Remove bold styling */
+}
+
+.read-more-button {
+    background: linear-gradient(90deg, #000000, #0015b5);
+}
+
+.contact-button {
+    background: linear-gradient(90deg, #0015b5, #000000);
+}
+
+.read-more-button:hover,
+.contact-button:hover {
+    transform: scale(1.05);
+}
+
+@keyframes slowmotionBackground {
+    0% {
+        background-image: url('static/images/3.png');
+    }
+    25% {
+        background-image: url('static/images/1.png');
+    }
+    50% {
+        background-image: url('static/images/2.png');
+    }
+    75% {
+        background-image: url('static/images/4.png');
+    }
+    100% {
+        background-image: url('static/images/3.png');
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .background-section {
+        padding: 50px 5%; /* Reduce padding on smaller screens */
+    }
+
+    .background-section h1 {
+        font-size: 5vw; /* Increase font size slightly for smaller screens */
+    }
+
+    .background-section p {
+        font-size: 2vw; /* Increase font size slightly for smaller screens */
+        max-width: 90%; /* Adjust max-width on smaller screens */
+    }
+
+    .read-more-button,
+    .contact-button {
+        font-size: 2vw; /* Increase font size slightly for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .background-section h1 {
+        font-size: 6vw; /* Adjust font size for very small screens */
+    }
+
+    .background-section p {
+        font-size: 2.5vw; /* Adjust font size for very small screens */
+    }
+
+    .read-more-button,
+    .contact-button {
+        font-size: 2.5vw; /* Adjust font size for very small screens */
+    }
+}
+
+
+        /* New Section Styles */
+        .new-section {
+            padding: 60px 30px;
+            background-color: #ffffff;
+            color: #333333;
+            text-align: center;
+        }
+
+        .new-section h2 {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .new-section p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .new-section .feature {
+            margin: 20px 0;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .new-section .feature h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .new-section .feature p {
+            font-size: 16px;
+        }
+
+/* About Us Section Styles */
+.about-us-section {
+    padding: 60px 30px;
+    background: linear-gradient(90deg, #0015b5, #000000);
+    color: #ffffff; /* White text */
+    text-align: center;
+}
+
+.about-us-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
+}
+
+.about-us-text h1 {
+    font-size: 65px; /* Increase the font size */
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+
+.about-us-images {
+    flex: 1;
+    max-width: 300px; /* Limit the max width of the image container */
+    position: relative; /* Set relative positioning for overlapping */
+}
+
+.about-us-img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    object-fit: cover; /* Maintain aspect ratio */
+}
+
+.about-us-img:first-child {
+    position: absolute;
+    top: -20px; /* Adjust to overlap the second image */
+    left: -20px; /* Adjust to overlap the second image */
+    z-index: 2; /* Ensure it appears on top */
+    transform: rotate(-5deg); /* Slight rotation for an advanced look */
+    transition: transform 0.3s;
+}
+
+.about-us-img:last-child {
+    position: relative;
+    z-index: 1;
+    transform: rotate(5deg); /* Slight rotation for an advanced look */
+    transition: transform 0.3s;
+}
+
+.about-us-img:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
+}
+
+.about-us-text {
+    flex: 2;
+    max-width: 600px;
+}
+
+.about-us-text h2 {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.about-us-text p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+/* Our Team Section Styles */
+.our-team-section {
+    padding: 60px 30px;
+    background-color: #ffffff;
+    color: #333333;
+    text-align: center;
+}
+
+.our-team-section h2 {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.our-team-section p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.team-image {
+    margin-top: 30px;
+}
+
+.team-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Meet the Founder Section Styles */
+.our-founder-section {
+    padding: 60px 30px;
+    background-color: #f9f9f9;
+    color: #333333;
+    text-align: center;
+    position: relative;
+}
+
+.our-founder-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.founder-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    text-align: center;
+}
+
+.founder-image {
+    position: relative;
+    width: 300px; /* Adjust as needed */
+    height: 300px; /* Adjust as needed */
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    background-color: #ffffff;
+    margin-bottom: 20px;
+}
+
+.founder-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image covers the container */
+    object-position: center top; /* Adjusts the focal point to be centered */
+    border-radius: 50%;
+}
+
+.founder-details {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.founder-details h3 {
+    font-size: 42px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color:#0015b5;
+}
+
+.founder-details h4 {
+    font-size: 28px;
+    font-weight: semi-bold;
+    margin-bottom: 20px;
+    color:#0015b5;
+}
+
+.founder-details p {
+    font-size: 18px;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    color: #666666; /* Lighter text color */
+}
+
+@media (max-width: 768px) {
+    .founder-info {
+        flex-direction: column;
+    }
+
+    .founder-image {
+        width: 200px; /* Adjust for smaller screens */
+        height: 200px; /* Adjust for smaller screens */
+    }
+
+    .founder-details h2 {
+        font-size: 36px;
+    }
+
+    .founder-details h3 {
+        font-size: 24px;
+    }
+
+    .founder-details p {
+        font-size: 16px;
+    }
+}
+
+.payment-solutions-section {
+    background: linear-gradient(to right, #f0f4f8, #e4e9f0); /* Gradient background */
+    padding: 40px 20px; /* Add padding for better spacing */
+    color: #333; /* Text color */
+}
+
+.payment-solutions-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto; /* Center content */
+    position: relative;
+}
+
+.payment-text {
+    flex: 1;
+    padding-right: 20px; /* Space between text and images */
+}
+
+.payment-text h2 {
+    color: #3f51b5; /* Heading color */
+    font-size: 2.5em; /* Larger heading size */
+    margin-bottom: 20px;
+}
+
+.payment-text p, .payment-text ul {
+    color: #555; /* Text color for paragraphs and list items */
+}
+
+.payment-text ul {
+    padding-left: 20px; /* Indent list items */
+}
+
+.payment-text ul li {
+    margin-bottom: 10px; /* Space between list items */
+    display: flex;
+    align-items: center;
+}
+
+.payment-text ul li i {
+    color: #3f51b5; /* Icon color */
+    margin-right: 10px; /* Space between icon and text */
+}
+
+.payment-image {
+    flex: 1;
+    position: relative; /* Set relative positioning for overlapping */
+    max-width: 300px; /* Limit the max width of the image container */
+}
+
+.payment-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    object-fit: cover; /* Maintain aspect ratio */
+    transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition for transformations */
+}
+
+.payment-image img:first-child {
+    position: absolute;
+    top: -20px; /* Adjust to overlap the second image */
+    left: -20px; /* Adjust to overlap the second image */
+    z-index: 2; /* Ensure it appears on top */
+    transform: rotate(-5deg); /* Slight rotation for an advanced look */
+}
+
+.payment-image img:last-child {
+    position: relative;
+    z-index: 1;
+    transform: rotate(5deg); /* Slight rotation for an advanced look */
+}
+
+.payment-image img:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+}
+
+.payment-logo {
+    margin-top: 30px;
+}
+
+.payment-logo img {
+    max-width: 200px;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+}
+
+
+
+
+@media (max-width: 768px) {
+    .payment-solutions-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .payment-text {
+        font-weight: 600;
+        color: #3F51B5;
+    }
+
+    .payment-image {
+        max-width: 100%;
+    }
+}
+
+
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar">
+    <div class="logo-container">
+        <img src="static/images/logo.png" alt="Logo" class="logo">
+
+        <a href="#" class="brand-name">FSolution Pay</a>
+    </div>
+    
+    <ul id="nav-menu" class="nav-menu">
+        <li><a href="#background-section">Home</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#solutions">Our Solutions</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
+<script>
+    document.getElementById('menu-icon').addEventListener('click', function () {
+        document.getElementById('nav-menu').classList.toggle('show');
+    });
+</script>
+
+    
+
+
+
+
+    <!-- Background Section -->
+    <section id="background-section">
+    <section class="background-section">
+        <div>
+            <h1>Welcome to AI pay##</h1>
+
+            <p>At FSolution Pay, we are pioneering a new era of secure, seamless transactions. Our innovative fingerprint payment system is designed to revolutionize how you make payments, offering convenience, security, and speed at your fingertips. Join us in transforming the way the world pays, one touch at a time.</p>
+            <div class="button-container">
+                <button class="read-more-button" onclick="location.href='#team'">Read More</button>
+<button class="contact-button" onclick="location.href='#contact'">Contact Us</button>
+
+            </div>
+        </div>
+    </section>
+
+<!-- About Us Section -->
+<section id="about">
+<section class="about-us-section">
+    <div class="about-us-content">
+        <div class="about-us-images">
+            <img src="static/images/5.png" alt="About Us Image 1" class="about-us-img">
+            <img src="static/images/6.png" alt="About Us Image 2" class="about-us-img">
+        </div>
+        <div class="about-us-text">
+            <h1>About Us</h1>
+            <h3>Our Story</h3>
+            <p>FSolution Pay is transforming the payment industry with cutting-edge biometric authentication and AI technology. Our mission is to provide a secure, fast, and user-friendly payment solution that simplifies transactions.</p>
+            <p>Founded by Forget Nukeri, our company leverages extensive technology and user experience expertise to create innovative payment solutions. We are committed to enhancing financial interactions and leading the way in secure, seamless payments.</p>
+        </div>
+    </div>
+</section>
+
+<head>
+    <!-- Add this inside the <head> section -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-O8CBAi1WzTyNmtFhb8cJ2QHgXz78qqGH2Ap0q+br5aZh1so7O+Nk2sykKmG4yqqdFZsvtAeIhlwTRQIx1nkJ4w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<!-- Meet the Founder Section -->
+<section id="team">
+<section class="our-founder-section">
+    <div class="our-founder-content">
+        <div class="founder-info">
+            <div class="founder-image">
+                <img src="static/images/team.jpg" alt="Forget Nukeri" onerror="this.onerror=null; this.src='assets/images/default.jpg';">
+
+
+            </div>
+            <div class="founder-details">
+                <h3>Meet the Founder</h3>
+                <h4>Forget Nukeri</h3>
+                <p>Forget is the visionary behind FSolution Pay. With a deep passion for technology and innovation, Forget has led our company to revolutionize payment solutions. His dedication to secure, user-friendly payment systems drives our mission and success.</p>
+                <p>Under Forget's leadership, we have embraced cutting-edge biometric authentication and AI technology to deliver unparalleled payment experiences. His expertise and commitment to excellence continue to shape our journey and set new standards in the payment industry.</p>
+                
+                <!-- LinkedIn Icon with Link -->
+                <a href="https://www.linkedin.com/in/forget-nukeri-5b3228287/" target="_blank" style="font-size: 24px; color: #0077b5; text-decoration: none;">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Payment Solutions Section -->
+<section id="solutions">
+<section class="payment-solutions-section" id="payment-solutions-section">
+    <div class="payment-solutions-content">
+        <div class="payment-text">
+            <h2>Our Payment Solutions</h2>
+            <p>Experience the future of transactions with FSolution Pay's advanced payment solutions. </p>
+            <p>We offer a range
+                of services designed to make your payments seamless, secure, and effortless.</p>
+
+                <ul>
+                    <li><i class="fas fa-wifi"></i> <strong>Seamless Contactless Payments:</strong> Experience effortless transactions with a single tap—no physical interaction required.</li>
+                    <li><i class="fas fa-money-bill-wave"></i> <strong>Go Cash-Free:</strong> Transition to a fully digital ecosystem, leaving behind the need for physical currency.</li>
+                    <li><i class="fas fa-credit-card"></i> <strong>Innovative Card-Free Solutions:</strong> Enjoy secure and reliable payments without relying on traditional bank cards.</li>
+                </ul>
+                
+                <p>Join millions of South Africans who rely on FSolution pay for ultra-fast, secure bank-to-bank transactions. Empower your smart devices to simplify payments and eliminate the need for cash or cards.</p>
+
+        </div>
+        <div class="payment-image">
+            <img src="static/images/9.jpg" alt="FSolution Pay POS Device">
+            <img src="static/images/8.jpg" alt="FSolution Pay POS Device">
+        </div>
+        
+    </div>
+</section>
+
+
+<!-- Contact Section -->
+<section id="contact">
+<section class="contact-section" id="contact">
+    <div class="contact-overlay">
+        <h2>Contact Us</h2>
+        <p>If you have any questions, feel free to reach out to us through the following contact details or our social media channels.</p>
+
+        <div class="contact-container">
+            <div class="contact-details">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <span class="contact-text">+27 76 285 2630</span>
+                    </div>
+                    <div class="underline"></div>
+
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span class="contact-text">nhlamuloftee@gmail.com</span>
+                    </div>
+                    <div class="underline"></div>
+
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span class="contact-text">Khujwana Tzaneen, Limpopo, South Africa</span>
+                    </div>
+                    <div class="underline"></div>
+
+                    <div class="contact-item">
+                        <i class="fas fa-globe"></i>
+                        <span class="contact-text">Launching Soon!</span>
+                    </div>
+                    <div class="underline"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+                
+                </div> 
+        </div>
+
+        <!-- Google Map -->
+        <!-- Google Map -->
+<div class="map-container">
+    <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2417.8645274262303!2d30.226738902571284!3d-23.932229847060484!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ec3ffc07205d135%3A0x76954ec93c2bed26!2sKhujwana%20Primary%20School!5e0!3m2!1sen!2sza!4v1736703912119!5m2!1sen!2sza" 
+        width="100%" 
+        height="450" 
+        style="border:0;" 
+        allowfullscreen="" 
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+</div>
+
+    </div>
+</section>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css');
+
+.contact-section {
+    background: url('static/images/11.png') no-repeat center center/cover;
+    position: relative;
+    padding: 60px 20px;
+    color: #ffffff;
+    font-family: 'Raleway', sans-serif;
+}
+
+.contact-overlay {
+    padding: 40px 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: center; /* Centered heading for smaller screens */
+}
+
+p {
+    font-size: 18px;
+    margin-bottom: 40px;
+    text-align: center; /* Centered paragraph for smaller screens */
+}
+
+.contact-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0 20px; /* Added padding for better alignment on smaller screens */
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+    transition: transform 0.3s ease;
+}
+
+.contact-item i {
+    font-size: 24px;
+    color: #e4e9f0;
+    margin-right: 16px;
+}
+
+.contact-text {
+    font-size: 20px;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.contact-item:hover {
+    transform: translateX(10px);
+}
+
+.underline {
+    width: 100%;
+    height: 2px;
+    background-color: #ff5722;
+    margin-top: 8px;
+    opacity: 0.7;
+    transition: width 0.3s ease, opacity 0.3s ease;
+}
+
+.contact-item:hover .underline {
+    width: 100%;
+    opacity: 1;
+}
+
+.map-container {
+    margin-top: 40px;
+    width: 100%;
+    height: 450px;
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+/* Responsive Design */
+
+@media (max-width: 768px) {
+    h2 {
+        font-size: 28px;
+        letter-spacing: 1.5px;
+    }
+
+    p {
+        font-size: 16px;
+    }
+
+    .contact-item {
+        margin-bottom: 20px;
+    }
+
+    .contact-text {
+        font-size: 18px;
+    }
+
+    .contact-item i {
+        font-size: 20px;
+        margin-right: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-section {
+        padding: 40px 15px;
+    }
+
+    h2 {
+        font-size: 24px;
+        letter-spacing: 1px;
+    }
+
+    p {
+        font-size: 14px;
+    }
+
+    .contact-text {
+        font-size: 16px;
+    }
+
+    .contact-item i {
+        font-size: 18px;
+    }
+    .map-container {
+            height: 300px;
+        }
+}
+
+
+
+
+
+
+
+/* Footer Styles */
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css');
+
+.footer {
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.5), rgba(0, 21, 181, 0.5)), 
+    url('static/images/1.png') no-repeat center center/cover;
+    color: #FFFFFF;
+    padding: 40px 20px;
+    text-align: left;
+    font-family: 'Raleway', sans-serif;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-logo {
+    flex: 1;
+    min-width: 250px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.footer-logo-img {
+    max-width: 150px;
+    height: auto;
+}
+
+.footer-nav,
+.footer-social,
+.footer-subscribe {
+    flex: 1;
+    min-width: 250px;
+    margin-bottom: 20px;
+}
+
+.footer-nav h3,
+.footer-social h3,
+.footer-subscribe h3 {
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.footer-nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-nav ul li {
+    margin-bottom: 10px;
+}
+
+.footer-nav ul li a {
+    color: #FFFFFF;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.footer-nav ul li a:hover {
+    text-decoration: underline;
+}
+
+.footer-social .social-icons {
+    display: flex;
+    align-items: center;
+}
+
+.footer-social .social-icons a {
+    color: #FFFFFF;
+    margin-right: 15px;
+    font-size: 24px;
+    transition: color 0.3s;
+}
+
+.footer-social .social-icons a:hover {
+    color: #FF5722;
+}
+
+.footer-subscribe form {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-subscribe input[type="email"] {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.footer-subscribe button {
+    padding: 10px;
+    background: linear-gradient(90deg, #000000, #0015b5);
+    color: #FFFFFF;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.footer-subscribe button:hover {
+    background-color: #FF7849;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.footer-bottom p {
+    margin: 0;
+    font-size: 14px;
+}
+
+/* Responsive Design */
+
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        padding: 0 15px;
+    }
+
+    .footer-nav,
+    .footer-social,
+    .footer-subscribe {
+        text-align: center;
+    }
+
+    .footer-logo {
+        justify-content: center;
+        margin-bottom: 30px;
+    }
+
+    .footer-logo-img {
+        max-width: 120px;
+    }
+
+    .footer-nav ul li a,
+    .footer-nav h3,
+    .footer-social h3,
+    .footer-subscribe h3 {
+        font-size: 18px;
+    }
+
+    .footer-social .social-icons {
+        justify-content: center;
+    }
+
+    .footer-nav ul li a {
+        font-size: 16px;
+    }
+
+    .footer-subscribe input[type="email"] {
+        width: 100%;
+        font-size: 16px;
+    }
+
+    .footer-subscribe button {
+        font-size: 16px;
+        padding: 12px;
+    }
+
+    .footer-bottom p {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer-container {
+        padding: 0 10px;
+    }
+
+    .footer-nav ul li a,
+    .footer-nav h3,
+    .footer-social h3,
+    .footer-subscribe h3 {
+        font-size: 16px;
+    }
+
+    .footer-logo-img {
+        max-width: 100px;
+    }
+
+    .footer-subscribe input[type="email"] {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .footer-subscribe button {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .footer-bottom p {
+        font-size: 14px;
+    }
+}
+
+
+
+</style>
+
+
+
+<!-- Footer Section -->
+<!-- Footer Section -->
+<footer class="footer">
+    <div class="footer-container">
+        <!-- Logo Section -->
+        <div class="footer-logo">
+            <img src="static/images/logo.png" alt="FSolution Logo" class="footer-logo-img">
+        </div>
+
+        <div class="footer-nav">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="#background-section">Home</a></li>
+                <li><a href="#solutions">Solutions</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-social">
+            <h3>Follow Us</h3>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+
+        <div class="footer-subscribe">
+            <h3>Subscribe</h3>
+            <p>Get the latest updates and offers.</p>
+            <form action="#">
+                <input type="email" placeholder="Your Email Address" required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; 2024 FSolution Pay. All Rights Reserved.</p>
+    </div>
+</footer>
+
+
+</body>
+
+</html>
